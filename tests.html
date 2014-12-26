@@ -1,3 +1,23 @@
+<!--
+    @licstart
+    Copyright (C) 2014 Petr Kalinin, petr@kalinin.nnov.ru
+ 
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License <http://www.gnu.org/licenses/gpl.html> for more details.
+
+    The full text of the license is available at <http://www.gnu.org/licenses/gpl.html>
+    
+    Includes jQuery JavaScript Library licensed released under the MIT license.
+    @licend
+    @source: https://github.com/petr-kalinin/tests
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,6 +57,16 @@ button {
 }
 #restart {
     margin-top:15px;
+}
+#footer {
+    border-top: 1px solid #555555;
+    padding-top: 5px;
+    margin-top: 20px;
+    font-size: 70%;
+}
+#footer p {
+    padding-top:3px;
+    margin:0px;
 }
 </style>
 </head>
@@ -9830,9 +9860,23 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
 }
 
 })( window );
-//  ---- This is the end of jquery code
+/*
+  This is the end of jQuery code. 
+  The code below is licensed under GPL 3.0
+*/
 </script>
 <script type="text/javascript">
+var copyrightText = 
+        "<p>Copyright (C) 2014 Petr Kalinin</p>" +
+        "<p>This program is free software: you can redistribute it and/or modify " +
+        "it under the terms of the <a href='http://www.gnu.org/licenses/gpl.html'>GNU General Public License</a> as published by " +
+        "the <a href='http://www.fsf.org'>Free Software Foundation</a>, either version 3 of the License, or " +
+        "(at your option) any later version.</p>" +
+        "<p>Данная программа является свободным ПО. Вы можете распространять и/или модифицировать её " + 
+        "в соответствии с <a href='http://www.gnu.org/licenses/gpl.html'>Общей Лицензией GNU</a> " +
+        " (GNU General Public License), опубликованной <a href='http://www.fsf.org'>Фондом свободного ПО</a> " +
+        "(Free Software Foundation), либо версии 3 Лицензии, либо (по Вашему желанию) любой последующей версии.</p>" +
+        "<a href='https://github.com/petr-kalinin/tests'>https://github.com/petr-kalinin/tests</a>";
 var allQuestions = {
   "1" : [
     [
@@ -9936,6 +9980,7 @@ function fullInit() {
     for (var sect in allQuestions) {
         body.append("<div class='answer' onclick='init("+sect+")'>Раздел " + sect + "</div>");
     }
+    body.append("<div id='footer'>" + copyrightText + "</div>");
 }
 
 function init(q) {
