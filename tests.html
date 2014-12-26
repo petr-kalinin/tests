@@ -15,7 +15,7 @@ body {
     padding-left:15px;
     margin:3px;
 }
-.question {
+.question, .stats {
     border-left:3px solid #99ff99;
     background:#dddddd;
 }
@@ -9867,6 +9867,7 @@ var totalCorrect = 0;
 var curCorrect = -1;
 var cur = 0;
 var body;
+var needShuffle = false;
 
 function shuffle(array) {
   var currentIndex = array.length
@@ -9930,13 +9931,17 @@ function fullInit() {
     $( "body" ).append("<div id='mainCont'/>");
     body = $( "#mainCont" );
     body.append("<div class='question'>Выберите раздел</div>");
+    body.append("<div id='spacesDiv'><input type='checkbox' name='shuffle' id='shuffle' "
+        + (needShuffle ? "checked='checked' " : "" ) + "/> Случайный порядок вопросов</div>");
     for (var sect in allQuestions) {
         body.append("<div class='answer' onclick='init("+sect+")'>Раздел " + sect + "</div>");
     }
 }
 
 function init(q) {
-    question = shuffle(allQuestions[q]);
+    needShuffle = $( "#shuffle" ).prop("checked");
+    question = allQuestions[q].slice(0);
+    if (needShuffle) shuffle(question)
     totalCorrect = 0;
     cur = 0;
     writeQuestion();
